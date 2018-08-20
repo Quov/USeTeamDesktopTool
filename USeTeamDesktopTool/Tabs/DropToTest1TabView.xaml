@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="USeTeamDesktopTool.DropToTest1TabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:USeTeamDesktopTool"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" Width="1248" Height="609" Margin="0">
+
+    <Grid Width="1248" Margin="0" Height="609">
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="141,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="934"/>
+        <Label Content="Source File" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Width="131"/>
+        <Button x:Name="SelectFileBTN" Content="Select File" HorizontalAlignment="Left" Margin="1090,16,0,0" VerticalAlignment="Top" Width="148" Click="SelectFileBTN_Click"/>
+        <TextBox x:Name="FilePathTB" HorizontalAlignment="Left" Height="23" Margin="141,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="934" Text="C:/Users/ABuchanan/Desktop/EDI INVOICE LINES CNS/612302-TEST.XML"/>
+        <GroupBox Header="Raw XML Data" HorizontalAlignment="Left" Height="410" Margin="10,60,0,0" VerticalAlignment="Top" Width="591">
+            <Grid HorizontalAlignment="Left" Height="375" Margin="0,10,-2,0" VerticalAlignment="Top" Width="581">
+                <Label Content="CLIENT__NO" HorizontalAlignment="Left" Margin="7,70,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="MASTER__BILL" HorizontalAlignment="Left" Margin="7,98,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="Everywhere Else" HorizontalAlignment="Left" Margin="338,126,0,0" VerticalAlignment="Top" Width="165" Height="28"/>
+                <Label Content="HOUSE__BILL" HorizontalAlignment="Left" Margin="7,154,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="MATCH__SHIPMENT" HorizontalAlignment="Left" Margin="7,182,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="DASHBOARD__WORK__MGMT" HorizontalAlignment="Left" Margin="338,98,0,0" VerticalAlignment="Top" Width="165" Height="28"/>
+                <Label Content="SUB__SUB__BILL" HorizontalAlignment="Left" Margin="7,210,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="ENTRY__NO" HorizontalAlignment="Left" Margin="7,238,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="COMM__INV__NO" HorizontalAlignment="Left" Margin="7,266,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <TextBox x:Name="ClientNoTB" HorizontalAlignment="Left" Height="23" Margin="138,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" />
+                <TextBox x:Name="MasterBillDBTB" HorizontalAlignment="Left" Height="23" Margin="138,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="MasterBillEETB" HorizontalAlignment="Left" Height="23" Margin="138,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="HouseBillTB" HorizontalAlignment="Left" Height="23" Margin="138,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="MatchShipmentTB" HorizontalAlignment="Left" Height="23" Margin="138,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="SubSubBillTB" HorizontalAlignment="Left" Height="23" Margin="138,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="EntryNoTB" HorizontalAlignment="Left" Height="23" Margin="138,238,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="CommInvNoTB1" HorizontalAlignment="Left" Height="23" Margin="138,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center"/>
+                <Label Content="to" HorizontalAlignment="Left" Margin="338,266,0,0" VerticalAlignment="Top" Width="33" Height="29"/>
+                <TextBox x:Name="CommInvNoTB2" HorizontalAlignment="Left" Height="23" Margin="371,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center"/>
+                <Label Content="PROCESS__CD" HorizontalAlignment="Left" Margin="7,42,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <TextBox x:Name="ProcessCDTB" HorizontalAlignment="Left" Height="23" Margin="138,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" />
+                <Label Content="MATCH__ENTRY" HorizontalAlignment="Left" Margin="7,14,0,0" VerticalAlignment="Top" Width="131" Height="30"/>
+                <TextBox x:Name="MatchEntryTB" HorizontalAlignment="Left" Height="23" Margin="138,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center"/>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="GenerateNewXmlDataBTN" Content="Generate New Data and Drop to Test 1" HorizontalAlignment="Left" Margin="32,486,0,0" VerticalAlignment="Top" Width="1170" Height="42" Click="GenerateNewXmlDataBTN_Click"/>
+        <GroupBox x:Name="NewXmlGroupBox" Header="New XML Data" HorizontalAlignment="Left" Height="410" Margin="647,60,0,0" VerticalAlignment="Top" Width="591" Background="#00F3D7D7">
+            <Grid HorizontalAlignment="Left" Height="375" Margin="0,10,-2,0" VerticalAlignment="Top" Width="581">
+                <Label Content="CLIENT__NO" HorizontalAlignment="Left" Margin="7,70,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="MASTER__BILL" HorizontalAlignment="Left" Margin="7,98,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="Everywhere Else" HorizontalAlignment="Left" Margin="338,126,0,0" VerticalAlignment="Top" Width="165" Height="28"/>
+                <Label Content="HOUSE__BILL" HorizontalAlignment="Left" Margin="7,154,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="MATCH__SHIPMENT" HorizontalAlignment="Left" Margin="7,182,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="DASHBOARD__WORK__MGMT" HorizontalAlignment="Left" Margin="338,98,0,0" VerticalAlignment="Top" Width="165" Height="28"/>
+                <Label Content="SUB__SUB__BILL" HorizontalAlignment="Left" Margin="7,210,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="ENTRY__NO" HorizontalAlignment="Left" Margin="7,238,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="COMM__INV__NO" HorizontalAlignment="Left" Margin="7,266,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <TextBox x:Name="NewClientNoTB" HorizontalAlignment="Left" Height="23" Margin="138,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" IsReadOnly="True" />
+                <TextBox x:Name="NewMasterBillDBTB" HorizontalAlignment="Left" Height="23" Margin="138,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                <TextBox x:Name="NewMasterBillEETB" HorizontalAlignment="Left" Height="23" Margin="138,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                <TextBox x:Name="NewHouseBillTB" HorizontalAlignment="Left" Height="23" Margin="138,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                <TextBox x:Name="NewMatchShipmentTB" HorizontalAlignment="Left" Height="23" Margin="138,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                <TextBox x:Name="NewSubSubBillTB" HorizontalAlignment="Left" Height="23" Margin="138,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                <TextBox x:Name="NewEntryNoTB" HorizontalAlignment="Left" Height="23" Margin="138,238,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                <TextBox x:Name="NewCommInvNoTB" HorizontalAlignment="Left" Height="23" Margin="138,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                <Label Content="to" HorizontalAlignment="Left" Margin="338,266,0,0" VerticalAlignment="Top" Width="33" Height="29"/>
+                <TextBox x:Name="NewCommInvNoTB2" HorizontalAlignment="Left" Height="23" Margin="371,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                <Label Content="PROCESS__CD" HorizontalAlignment="Left" Margin="7,42,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <TextBox x:Name="NewProcessCDTB" HorizontalAlignment="Left" Height="23" Margin="138,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" IsReadOnly="True" />
+                <Label Content="MATCH__ENTRY" HorizontalAlignment="Left" Margin="7,14,0,0" VerticalAlignment="Top" Width="131" Height="30"/>
+                <TextBox x:Name="NewMatchEntryTB" HorizontalAlignment="Left" Height="23" Margin="138,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" IsReadOnly="True"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

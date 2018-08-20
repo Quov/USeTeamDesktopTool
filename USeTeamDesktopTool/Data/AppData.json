@@ -1,0 +1,11 @@
+{
+  "LastUpdated": "2018-02-20T22:12:47.1195049-05:00",
+  "ConnectionTest1": "C:/Users/Anthony/Desktop/AppTestFolders/Test1",
+  "ConnectionTest2": "C:/Users/Anthony/Desktop/AppTestFolders/Test2",
+  "ConnectionProd": "C:/Users/Anthony/Desktop/AppTestFolders/Prod",
+  "MatchEntry": "AB02488",
+  "MasterBillEE": "ABTEST02488",
+  "MasterBillScac": "RDWY",
+  "MatchShipment": "AB000-2488",
+  "CommInvNo": "ABTESTING-7941"
+}
