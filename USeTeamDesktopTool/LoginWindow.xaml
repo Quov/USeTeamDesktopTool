@@ -1,0 +1,17 @@
+﻿<Window x:Class="USeTeamDesktopTool.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:USeTeamDesktopTool"
+        mc:Ignorable="d"
+        Title="Login Window" Height="138.663" Width="369.622">
+    <Grid>
+        <Label Content="User Class" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="79,44,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="265"/>
+        <ComboBox HorizontalAlignment="Left" Margin="79,14,0,0" VerticalAlignment="Top" Width="265"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="LaunchApplicationBTN" Content="Launch Application" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="334" Click="LaunchApplicationBTN_Click"/>
+
+    </Grid>
+</Window>

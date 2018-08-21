@@ -7,14 +7,12 @@
         xmlns:mvvm="clr-namespace:USeTeamDesktopTool.MVVM;assembly=USeTeamDesktopTool.MVVM"
         mc:Ignorable="d"
         Title="USeTeam Desktop Tool" 
-        Height="730" Width="1290"
+        Height="797.733" Width="1290"
         d:DataContext="{d:DesignInstance tabs:MainWindowViewModel}">
-    <DockPanel Margin="0">
-        <Grid Width="1274" Margin="0,4">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="691"/>
-            </Grid.RowDefinitions>
-            <Menu Height="22" VerticalAlignment="Bottom" Margin="0,0,0,669">
+    <DockPanel>
+        <Grid>
+
+            <Menu Margin="0,1,0,669">
                 <MenuItem Header="File" HorizontalAlignment="Left" Height="22" Width="34" RenderTransformOrigin="0,0.5">
                     <!--<MenuItem Header="Save" HorizontalAlignment="Left" Height="22" Width="140" Command="{Binding NewSaveTabCommand}" />
                     <MenuItem Header="Test" HorizontalAlignment="Left" Height="22" Width="140" Command="{Binding NewTestTabCommand}" />-->
@@ -22,7 +20,7 @@
                     <MenuItem Header="Exit" HorizontalAlignment="Left" Height="22" Width="140"/>
                 </MenuItem>
                 <MenuItem Header="Analysis" Height="22" Width="58" HorizontalAlignment="Left" RenderTransformOrigin="0,0.5">
-                    <MenuItem Header="Compare eLink2 XML" HorizontalAlignment="Left" Height="22" Width="200" Command="{Binding NewCompareTabCommand}"/>
+                    <MenuItem Header="Compare eLink2 XML" HorizontalAlignment="Left" Height="22" Width="240" Command="{Binding NewCompareTabCommand}"/>
                     <!--<MenuItem Header="Analyze eLink2 XML" HorizontalAlignment="Left" Height="22" Width="200"/>
                     <MenuItem Header="BRP Flat File" HorizontalAlignment="Left" Height="22" Width="200"/>-->
                 </MenuItem>
@@ -34,7 +32,7 @@
                     <MenuItem Header="Select UserClass" HorizontalAlignment="Left" Height="22" Width="180"/>
                 </MenuItem>
             </Menu>
-            <TabControl x:Name="MainTabControl" ItemsSource="{Binding Tabs}" Margin="10,27,0,0" HorizontalAlignment="Left" Width="1254" Height="637" VerticalAlignment="Top">
+            <TabControl x:Name="MainTabControl" ItemsSource="{Binding Tabs}" Margin="10,27,10,28">
                 <TabControl.Resources>
                     <DataTemplate DataType="{x:Type tabs:SaveTab}">
                         <tabs:SaveTabView/>
@@ -58,8 +56,8 @@
                     </DataTemplate>
                 </TabControl.ItemTemplate>
             </TabControl>
-            <StatusBar HorizontalAlignment="Left" Height="22" Margin="0,669,0,0" VerticalAlignment="Top" Width="1274">
-                <StatusBarItem Content="StatusBarItem" Height="22" VerticalAlignment="Top"/>
+            <StatusBar Height="23" VerticalAlignment="Bottom">
+                <StatusBarItem Content="StatusBarItem" Width="94" HorizontalAlignment="Left"/>
             </StatusBar>
         </Grid>
     </DockPanel>
