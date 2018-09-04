@@ -24,6 +24,24 @@ namespace USeTeamDesktopTool
         {
             //TODO: Add process to check for event logs and remove files over a week old
             InitializeComponent();
+
+
+            if (Properties.Settings.Default.UserClass != "USeTeam")
+            {
+                DropToTest1Menu.Visibility = System.Windows.Visibility.Hidden;
+                CompareEdiMenu.Visibility = System.Windows.Visibility.Hidden;
+            }
+        }
+
+        private void SelectUserClassBTN_Clicked(object sender, RoutedEventArgs e)
+        {
+            LoginWindow newUserClass = new LoginWindow();
+            newUserClass.Show();
+        }
+
+        private void ExitBTN_Clicked(object sender, RoutedEventArgs e)
+        {
+            System.Environment.Exit(1);
         }
     }
 }

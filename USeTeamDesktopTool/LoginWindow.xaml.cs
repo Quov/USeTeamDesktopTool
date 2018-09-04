@@ -21,13 +21,36 @@ namespace USeTeamDesktopTool
         public LoginWindow()
         {
             InitializeComponent();
+            List<String> CBList = new List<String>();
+            CBList.Add("Default");
+            CBList.Add("USeTeam");
+            UserClassCB.ItemsSource = CBList;
         }
 
         private void LaunchApplicationBTN_Click(object sender, RoutedEventArgs e)
         {
             //TODO : Add logic here to detail changing class (WILL REQUIRE PROGRAM RESTART)
-
-            this.Close();
+            if(UserClassCB.SelectedItem.ToString() == "USeTeam")
+            {
+                if(PasswordPB.Password.ToString() == "Buchanan071615")
+                {
+                    Properties.Settings.Default.UserClass = UserClassCB.SelectedItem.ToString();
+                    Properties.Settings.Default.Save();
+                    MessageBox.Show("User class has been changed. Please note : The GUI changes will not be reflected until the program is restarted.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("INCORRECT PASSWORD!");
+                }
+            }
+            else
+            {
+                Properties.Settings.Default.UserClass = UserClassCB.SelectedItem.ToString();
+                Properties.Settings.Default.Save();
+                MessageBox.Show("User class has been changed. Please note : The GUI changes will not be reflected until the program is restarted.");
+                this.Close();
+            }
         }
     }
 }

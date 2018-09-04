@@ -8,10 +8,10 @@
         Title="Login Window" Height="138.663" Width="369.622">
     <Grid>
         <Label Content="User Class" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="79,44,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="265"/>
-        <ComboBox HorizontalAlignment="Left" Margin="79,14,0,0" VerticalAlignment="Top" Width="265"/>
+        <ComboBox x:Name="UserClassCB" HorizontalAlignment="Left" Margin="79,14,0,0" VerticalAlignment="Top" Width="265"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="LaunchApplicationBTN" Content="Launch Application" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="334" Click="LaunchApplicationBTN_Click"/>
+        <Button x:Name="ChangeUserClassBTN" Content="Change User Class" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="334" Click="LaunchApplicationBTN_Click"/>
+        <PasswordBox x:Name="PasswordPB" HorizontalAlignment="Left" Margin="79,44,0,0" VerticalAlignment="Top" Width="265"/>
 
     </Grid>
 </Window>
