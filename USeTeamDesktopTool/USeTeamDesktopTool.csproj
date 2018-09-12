@@ -120,6 +120,10 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Tabs\AmazonAuditTab.cs" />
+    <Compile Include="Tabs\AmazonAuditTabView.xaml.cs">
+      <DependentUpon>AmazonAuditTabView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tabs\DropToTest1Tab.cs" />
     <Compile Include="Tabs\CompareTab.cs" />
     <Compile Include="Tabs\SaveTab.cs" />
@@ -152,6 +156,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Tabs\AmazonAuditTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Tabs\DropToTest1TabView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

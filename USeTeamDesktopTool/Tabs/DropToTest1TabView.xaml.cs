@@ -41,6 +41,7 @@ namespace USeTeamDesktopTool
             appDataFileLocation = eventLogger.GetAppDataFilePath();
             FilePathTB.Text = "";
             appLogFileLocation = eventLogger.GetAppLogFilePathName();
+            //TODO: Add a "Checking for Drop folder access" popup.
             if(Directory.Exists(@"\\mdcdvbz502\HF\INBOUND") == true)
             {
                 GenerateNewXmlDataBTN.IsEnabled = true;

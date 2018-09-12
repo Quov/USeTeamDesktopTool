@@ -17,6 +17,7 @@ namespace USeTeamDesktopTool
             NewTestTabCommand = new ActionCommand(p => NewTestTab());
             NewDropToTest1TabCommand = new ActionCommand(P => NewDropToTest1Tab());
             NewCompareTabCommand = new ActionCommand(P => NewCompareTab());
+            NewAmazonAuditTabCommand = new ActionCommand(P => NewAmazonAuditTab());
 
             tabs = new ObservableCollection<ITab>();
             tabs.CollectionChanged += Tabs_CollectionChanged;
@@ -28,6 +29,7 @@ namespace USeTeamDesktopTool
         public ICommand NewTestTabCommand { get; }
         public ICommand NewDropToTest1TabCommand { get; }
         public ICommand NewCompareTabCommand { get; }
+        public ICommand NewAmazonAuditTabCommand { get; }
 
         public ICollection<ITab> Tabs { get; }
 
@@ -50,6 +52,11 @@ namespace USeTeamDesktopTool
         private void NewCompareTab()
         {
             Tabs.Add(new CompareTab());
+        }
+
+        private void NewAmazonAuditTab()
+        {
+            Tabs.Add(new AmazonAuditTab());
         }
 
         private void Tabs_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

@@ -15,25 +15,7 @@
     </Window.Resources>
     <DockPanel>
         <Grid>
-            <Menu Margin="0,1,0,0" Height="21" VerticalAlignment="Top">
-                <MenuItem x:Name="FileMenu" Header="File" HorizontalAlignment="Left" Height="22" Width="34" RenderTransformOrigin="0,0.5">
-                    <!--<MenuItem Header="Save" HorizontalAlignment="Left" Height="22" Width="140" Command="{Binding NewSaveTabCommand}" />
-                    <MenuItem Header="Test" HorizontalAlignment="Left" Height="22" Width="140" Command="{Binding NewTestTabCommand}" />-->
-                    <Separator HorizontalAlignment="Left" Height="2" Width="140"/>
-                    <MenuItem x:Name="ExitMenu" Header="Exit" HorizontalAlignment="Left" Height="22" Width="140" Click="ExitBTN_Clicked"/>
-                </MenuItem>
-                <MenuItem x:Name="AnalysisMenu" Header="Analysis" Height="22" Width="58" HorizontalAlignment="Left" RenderTransformOrigin="0,0.5">
-                    <MenuItem x:Name="CompareEdiMenu" Header="Compare eLink2 XML" HorizontalAlignment="Left" Height="22" Width="240" Command="{Binding NewCompareTabCommand}"/>
-                    <!--<MenuItem Header="Analyze eLink2 XML" HorizontalAlignment="Left" Height="22" Width="200"/>
-                    <MenuItem Header="BRP Flat File" HorizontalAlignment="Left" Height="22" Width="200"/>-->
-                </MenuItem>
-                <MenuItem x:Name="TestingMenu" Header="Testing" Height="22" Width="53" HorizontalAlignment="Left" RenderTransformOrigin="0,0.5">
-                    <MenuItem x:Name="DropToTest1Menu" Header="Drop to Test 1" HorizontalAlignment="Left" Height="22" Width="180" Command="{Binding NewDropToTest1TabCommand}" />
-                    <!--<MenuItem Header="Drop to Test 2" HorizontalAlignment="Left" Height="22" Width="180"/>-->
-                </MenuItem>
-                <MenuItem x:Name="SettingsMenu" Header="Settings" Height="22" Width="59" HorizontalAlignment="Left" RenderTransformOrigin="0,0.5">
-                    <MenuItem x:Name="SelectUserClassMenu" Header="Select UserClass" HorizontalAlignment="Left" Height="22" Width="180" Click="SelectUserClassBTN_Clicked"/>
-                </MenuItem>
+            <Menu x:Name="MainMenu" Margin="0,1,0,0" Height="21" VerticalAlignment="Top">
             </Menu>
             <TabControl x:Name="MainTabControl" ItemsSource="{Binding Tabs}" Margin="10,27,10,28">
                 <TabControl.Resources>
@@ -48,6 +30,9 @@
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type tabs:CompareTab}">
                         <tabs:CompareTabView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type tabs:AmazonAuditTab}">
+                        <tabs:AmazonAuditTabView/>
                     </DataTemplate>
                 </TabControl.Resources>
                 <TabControl.ItemTemplate>
