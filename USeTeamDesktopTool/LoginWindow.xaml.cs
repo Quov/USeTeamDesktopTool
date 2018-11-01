@@ -25,6 +25,8 @@ namespace USeTeamDesktopTool
             CBList.Add("Default");
             CBList.Add("USeTeam");
             UserClassCB.ItemsSource = CBList;
+
+
         }
 
         private void LaunchApplicationBTN_Click(object sender, RoutedEventArgs e)
