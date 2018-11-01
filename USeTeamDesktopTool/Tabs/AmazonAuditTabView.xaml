@@ -7,5 +7,24 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" Width="1248" Height="609" Margin="0">
 
-    <Grid Width="1248" Margin="0" Height="609"/>
+    <Grid Width="1248" Margin="0" Height="609">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="AdHoc Report" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="136"/>
+        <TextBox x:Name="AdhocFileTB" Height="24" Margin="151,14,365,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="RunAnalysisBTN" Content="Run Analysis" Margin="0,14,26,0" VerticalAlignment="Top" Height="50" Click="RunAnalysisBTN_Click" HorizontalAlignment="Right" Width="172"/>
+        <Button x:Name="SelectAdhocBTN" Content="Select Adhoc File" HorizontalAlignment="Right" Margin="0,14,203,0" VerticalAlignment="Top" Width="157" Click="SelectAdhocBTN_Click"/>
+        <DataGrid x:Name="DataGridViewDG" Margin="10,70,22,47" CanUserAddRows="False" CanUserReorderColumns="False" IsReadOnly="True"/>
+        <Button x:Name="ExcelOutputBTN" Content="" Margin="10,0,0,10" Click="ExcelOutputBTN_Click" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="32">
+            <Button.Background>
+                <ImageBrush ImageSource="Files/Microsoft-Excel-2013-icon.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Save to Excel" Margin="44,0,0,13" HorizontalAlignment="Left" Width="78" Height="26" VerticalAlignment="Bottom"/>
+        <Label Content="CSV Assist File" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.457" Width="136"/>
+        <Label x:Name="AccPercLabel" Content="" Margin="0,0,22,13" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="268" Height="34" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="CsvAssistTB" Height="22" Margin="151,42,365,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="SelectCsvAssistBTN" Content="Select Part File" HorizontalAlignment="Right" Margin="0,42,203,0" VerticalAlignment="Top" Width="157" Click="SelectCsvAssistBTN_Click"/>
+    </Grid>
 </UserControl>

@@ -105,8 +105,8 @@ namespace USeTeamDesktopTool
 
                 MenuItem testingDropToTest1 = new MenuItem
                 {
-                    Header = "Compare eLink2 XML",
-                    Name = "CompareEdiMenu",
+                    Header = "Drop to Test 1",
+                    Name = "DropToTest1Menu",
                     //HorizontalAlignment = Left,
                     Height = 22,
                     Width = 240
