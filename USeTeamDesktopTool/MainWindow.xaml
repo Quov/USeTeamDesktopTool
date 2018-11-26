@@ -6,9 +6,14 @@
         xmlns:tabs="clr-namespace:USeTeamDesktopTool"
         xmlns:mvvm="clr-namespace:USeTeamDesktopTool.MVVM;assembly=USeTeamDesktopTool.MVVM"
         xmlns:properties="clr-namespace:USeTeamDesktopTool.Properties"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="USeTeam Desktop Tool" 
         Height="797.733" Width="1290"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         d:DataContext="{d:DesignInstance tabs:MainWindowViewModel}">
     <Window.Resources>
         <properties:Settings x:Key="Settings" />
@@ -17,7 +22,7 @@
         <Grid>
             <Menu x:Name="MainMenu" Margin="0,1,0,0" Height="21" VerticalAlignment="Top">
             </Menu>
-            <TabControl x:Name="MainTabControl" ItemsSource="{Binding Tabs}" Margin="10,27,10,28">
+            <TabControl x:Name="MainTabControl" ItemsSource="{Binding Tabs}" Margin="10,27,10,28" Background="{DynamicResource MaterialDesignPaper}">
                 <TabControl.Resources>
                     <DataTemplate DataType="{x:Type tabs:SaveTab}">
                         <tabs:SaveTabView/>
@@ -39,9 +44,15 @@
                     <DataTemplate DataType="{x:Type mvvm:ITab}">
                         <TextBlock VerticalAlignment="Top">
                             <Run Text="{Binding Name}"/>                           
-                            <Button x:Name="CloseTabBTN" Content="X"
-                                  HorizontalAlignment="Left" 
-                                  Foreground="Blue" Command="{Binding CloseCommand}" FontSize="8" Height="12"/>
+                            <Button x:Name="CloseTabBTN"
+                                  Command="{Binding CloseCommand}"
+                                  Height="16"
+                                  Width="16"
+                                  Margin="0 0 0 0"
+                                  Padding="0 0 0 0"
+                                  >                               
+                                  <materialDesign:PackIcon Kind="Close" Height="16" Width="16" />
+                            </Button>
                         </TextBlock>
                     </DataTemplate>
                 </TabControl.ItemTemplate>

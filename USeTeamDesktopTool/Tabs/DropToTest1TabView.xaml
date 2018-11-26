@@ -4,19 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:USeTeamDesktopTool"
-             mc:Ignorable="d" >
+             mc:Ignorable="d"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             >
 
     <Grid>
-        <Label Content="Source File" Margin="10,13,0,570" HorizontalAlignment="Left" Width="121"/>
-        <Button x:Name="SelectFileBTN" Content="Select File" Margin="0,16,10,0" Click="SelectFileBTN_Click" HorizontalAlignment="Right" Width="142" Height="22" VerticalAlignment="Top"/>
-        <TextBox x:Name="FilePathTB" Margin="141,14,173,0" TextWrapping="Wrap" Text="C:/Users/ABuchanan/Desktop/EDI INVOICE LINES CNS/612302-TEST.XML" Height="23" VerticalAlignment="Top"/>
-        <GroupBox Header="Raw XML Data" HorizontalAlignment="Left" Margin="10,60,0,0" Width="591" Height="410" VerticalAlignment="Top">
+        <Label Content="Source File" Margin="10,17,0,566.333" HorizontalAlignment="Left" Width="121" FontSize="14"/>
+        <Button x:Name="SelectFileBTN" Content="Select File" Margin="0,16,10.333,0" Click="SelectFileBTN_Click" HorizontalAlignment="Right" Width="142" Height="30" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="FilePathTB" Margin="141,18,172.333,0" TextWrapping="Wrap" Text="C:/Users/ABuchanan/Desktop/EDI INVOICE LINES CNS/612302-TEST.XML" Height="23" VerticalAlignment="Top" FontSize="14"/>
+        <GroupBox Header="Raw XML Data" HorizontalAlignment="Left" Margin="10,60,0,0" Width="591" Height="410" VerticalAlignment="Top" FontSize="14">
             <Grid HorizontalAlignment="Left" Height="375" Margin="0,10,-2,0" VerticalAlignment="Top" Width="581">
                 <Label Content="CLIENT__NO" HorizontalAlignment="Left" Margin="7,70,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
                 <Label Content="MASTER__BILL" HorizontalAlignment="Left" Margin="7,98,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
                 <Label Content="Everywhere Else" HorizontalAlignment="Left" Margin="338,126,0,0" VerticalAlignment="Top" Width="165" Height="28"/>
                 <Label Content="HOUSE__BILL" HorizontalAlignment="Left" Margin="7,154,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
-                <Label Content="MATCH__SHIPMENT" HorizontalAlignment="Left" Margin="7,182,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="MATCH__SHIPMENT" HorizontalAlignment="Left" Margin="7,182,0,0" VerticalAlignment="Top" Width="140" Height="28"/>
                 <Label Content="DASHBOARD__WORK__MGMT" HorizontalAlignment="Left" Margin="338,98,0,0" VerticalAlignment="Top" Width="165" Height="28"/>
                 <Label Content="SUB__SUB__BILL" HorizontalAlignment="Left" Margin="7,210,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
                 <Label Content="ENTRY__NO" HorizontalAlignment="Left" Margin="7,238,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
@@ -37,14 +43,14 @@
                 <TextBox x:Name="MatchEntryTB" HorizontalAlignment="Left" Height="23" Margin="138,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center"/>
             </Grid>
         </GroupBox>
-        <Button x:Name="GenerateNewXmlDataBTN" Content="Generate New Data and Drop to Test 1" Margin="32,486,54,0" Click="GenerateNewXmlDataBTN_Click" Height="42" VerticalAlignment="Top"/>
-        <GroupBox x:Name="NewXmlGroupBox" Header="New XML Data" Margin="0,60,18,0" Background="#00F3D7D7" HorizontalAlignment="Right" Width="591" Height="410" VerticalAlignment="Top">
+        <Button x:Name="GenerateNewXmlDataBTN" Content="Generate New Data and Drop to Test 1" Margin="32,486,54,0" Click="GenerateNewXmlDataBTN_Click" Height="42" VerticalAlignment="Top" FontSize="14"/>
+        <GroupBox x:Name="NewXmlGroupBox" Header="New XML Data" Margin="0,60,18,0" Background="#00F3D7D7" HorizontalAlignment="Right" Width="591" Height="410" VerticalAlignment="Top" FontSize="14">
             <Grid HorizontalAlignment="Left" Height="375" Margin="0,10,-2,0" VerticalAlignment="Top" Width="581">
                 <Label Content="CLIENT__NO" HorizontalAlignment="Left" Margin="7,70,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
                 <Label Content="MASTER__BILL" HorizontalAlignment="Left" Margin="7,98,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
                 <Label Content="Everywhere Else" HorizontalAlignment="Left" Margin="338,126,0,0" VerticalAlignment="Top" Width="165" Height="28"/>
                 <Label Content="HOUSE__BILL" HorizontalAlignment="Left" Margin="7,154,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
-                <Label Content="MATCH__SHIPMENT" HorizontalAlignment="Left" Margin="7,182,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
+                <Label Content="MATCH__SHIPMENT" HorizontalAlignment="Left" Margin="7,182,0,0" VerticalAlignment="Top" Width="140" Height="28"/>
                 <Label Content="DASHBOARD__WORK__MGMT" HorizontalAlignment="Left" Margin="338,98,0,0" VerticalAlignment="Top" Width="165" Height="28"/>
                 <Label Content="SUB__SUB__BILL" HorizontalAlignment="Left" Margin="7,210,0,0" VerticalAlignment="Top" Width="131" Height="28"/>
                 <Label Content="ENTRY__NO" HorizontalAlignment="Left" Margin="7,238,0,0" VerticalAlignment="Top" Width="131" Height="28"/>

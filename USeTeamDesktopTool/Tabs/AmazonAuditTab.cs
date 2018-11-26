@@ -7,7 +7,7 @@ namespace USeTeamDesktopTool
     {
         public AmazonAuditTab()
         {
-            Name = DateTime.Now.ToString();
+            Name = "Amazon Audit";
             Content = "This is a new tab generated at " + DateTime.Now.ToString() + ". This is a new tab generated at " + DateTime.Now.ToString() +
                 ". This is a new tab generated at " + DateTime.Now.ToString() + ". This is a new tab generated at " + DateTime.Now.ToString() +
                 ". This is a new tab generated at " + DateTime.Now.ToString();

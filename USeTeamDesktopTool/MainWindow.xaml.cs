@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Drawing;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
@@ -16,13 +17,13 @@ namespace USeTeamDesktopTool
             InitializeComponent();
 
             #region MenuControl
-            MenuItem FileMenu = new MenuItem
+            System.Windows.Controls.MenuItem FileMenu = new MenuItem
             {
                 Header = "File",
                 Name = "FileMenu",
-                //HorizontalAlignment = Left,
-                Height = 22,
-                Width = 34
+                //HorizontalAlignment = ,
+                Height = 22
+                //Width  = 90
             };
             MainMenu.Items.Add(FileMenu);
 
@@ -30,8 +31,8 @@ namespace USeTeamDesktopTool
                 {
                     Header = "Exit",
                     Name = "ExitMenu",
-                    Height = 22,
-                    Width = 140
+                    Height = 22
+                    //Width = 140
                 };
                 fileExitMenu.Click += new RoutedEventHandler(ExitBTN_Clicked);
                 FileMenu.Items.Add(fileExitMenu);
@@ -40,8 +41,8 @@ namespace USeTeamDesktopTool
             {
                 Header = "Analysis",
                 Name = "AnalysisMenu",
-                Height = 22,
-                Width = 58
+                Height = 22
+                //Width = 120
             };
             MainMenu.Items.Add(AnalysisMenu);
 
@@ -49,8 +50,8 @@ namespace USeTeamDesktopTool
                 {
                     Header = "Amazon Audit",
                     Name = "AmazonAuditMenu",
-                    Height = 22,
-                    Width = 240
+                    Height = 22
+                    //Width = 240
                 };
                 Binding analysisAmazonAuditBinding = new Binding();
                 analysisAmazonAuditBinding.Path = new PropertyPath("NewAmazonAuditTabCommand");
@@ -61,8 +62,8 @@ namespace USeTeamDesktopTool
             {
                 Header = "Testing",
                 Name = "TestingMenu",
-                Height = 22,
-                Width = 53
+                Height = 22
+                //Width = 90
             };
             MainMenu.Items.Add(TestingMenu);
 
@@ -70,8 +71,8 @@ namespace USeTeamDesktopTool
             {
                 Header = "Settings",
                 Name = "SettingsMenu",
-                Height = 22,
-                Width = 59
+                Height = 22
+                //Width = 140
             };
             MainMenu.Items.Add(SettingsMenu);
 
@@ -80,8 +81,8 @@ namespace USeTeamDesktopTool
                     Header = "Select UserClass",
                     Name = "SelectUserClassMenu",
                     //HorizontalAlignment = Left,
-                    Height = 22,
-                    Width = 180
+                    Height = 22
+                    //Width = 180
                 };
                 SelectUserClassMenu.Click += new RoutedEventHandler(SelectUserClassBTN_Clicked);
                 SettingsMenu.Items.Add(SelectUserClassMenu);
@@ -95,8 +96,8 @@ namespace USeTeamDesktopTool
                     Header = "Compare eLink2 XML",
                     Name = "CompareEdiMenu",
                     //HorizontalAlignment = Left,
-                    Height = 22,
-                    Width = 240
+                    Height = 22
+                    //Width = 240
                 };
                 Binding analysisCompareBinding = new Binding();
                 analysisCompareBinding.Path = new PropertyPath("NewCompareTabCommand");
@@ -108,8 +109,8 @@ namespace USeTeamDesktopTool
                     Header = "Drop to Test 1",
                     Name = "DropToTest1Menu",
                     //HorizontalAlignment = Left,
-                    Height = 22,
-                    Width = 240
+                    Height = 22
+                    //Width = 240
                 };
                 Binding dropToTest1Binding = new Binding();
                 dropToTest1Binding.Path = new PropertyPath("NewDropToTest1TabCommand");

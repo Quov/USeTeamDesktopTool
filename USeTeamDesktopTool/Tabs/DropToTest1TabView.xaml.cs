@@ -185,7 +185,8 @@ namespace USeTeamDesktopTool
 
             AppData appData = new AppData();
             
-            appDataFileLocation = @"S:\US_Brokerage\EDI\USeTeamDesktopTool\Data\AppData.json";
+            //TODO : Change to server address
+            appDataFileLocation = @"\\pdc-evs-file\US_Common\US_Brokerage\EDI\USeTeamDesktopTool\Data\AppData.json";
 
             if (WaitForFile(appDataFileLocation) == true)
             {
@@ -360,6 +361,7 @@ namespace USeTeamDesktopTool
             }
             else
             {
+                //TODO: Add logic to see which folder was not accesible.
                 System.Windows.MessageBox.Show("The log file used to obtain the correct key elements is in use by another user. Please try again shortly. If this issues continues, please contact Anthony.");
             }
             //}
