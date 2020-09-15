@@ -1,0 +1,22 @@
+﻿<Window x:Class="USeTeamDesktopTool.CanadaGooseAugmentModify"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:USeTeamDesktopTool"
+        mc:Ignorable="d"
+        Title="Canada Goose Modify Augment" Height="190.924" Width="800">
+    <Grid>
+        <Label Content="Augment Type" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="AugmentTypeTB"  HorizontalAlignment="Left" Height="23" Margin="137,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="InitialValueTB"  HorizontalAlignment="Left" Height="23" Margin="137,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296"/>
+        <TextBox x:Name="FinalValueTB"  HorizontalAlignment="Left" Height="23" Margin="137,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296"/>
+        <Label Content="Initial Value" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="Final Value" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="SaveBTN" Content="Save" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top" Width="773" Click="SaveBTN_Click"/>
+        <ComboBox x:Name="SelectedAugmentCB" HorizontalAlignment="Left" Margin="137,10,0,0" VerticalAlignment="Top" Width="513"/>
+        <Label Content="Select Augment" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="NewAugmentBTN" Content="New Augment" HorizontalAlignment="Left" Margin="655,10,0,0" VerticalAlignment="Top" Width="128" Height="22" Click="NewAugmentBTN_Click"/>
+
+    </Grid>
+</Window>

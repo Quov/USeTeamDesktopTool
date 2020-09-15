@@ -3,11 +3,11 @@ using USeTeamDesktopTool.MVVM;
 
 namespace USeTeamDesktopTool
 {
-    public class TestTab : Tab
+    public class MondelezAuditTab : Tab
     {
-        public TestTab()
+        public MondelezAuditTab()
         {
-            Name = "Patch Notes";
+            Name = "Mondelez Audit";
             Content = "This is a new tab generated at " + DateTime.Now.ToString() + ". This is a new tab generated at " + DateTime.Now.ToString() +
                 ". This is a new tab generated at " + DateTime.Now.ToString() + ". This is a new tab generated at " + DateTime.Now.ToString() +
                 ". This is a new tab generated at " + DateTime.Now.ToString();

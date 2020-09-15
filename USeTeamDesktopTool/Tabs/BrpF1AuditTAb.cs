@@ -3,11 +3,11 @@ using USeTeamDesktopTool.MVVM;
 
 namespace USeTeamDesktopTool
 {
-    public class SaveTab : Tab
+    public class BrpF1AuditTab : Tab
     {
-        public SaveTab()
+        public BrpF1AuditTab()
         {
-            Name = DateTime.Now.ToString();
+            Name = "BRP F1 Audit";
             Content = "This is a new tab generated at " + DateTime.Now.ToString() + ". This is a new tab generated at " + DateTime.Now.ToString() +
                 ". This is a new tab generated at " + DateTime.Now.ToString() + ". This is a new tab generated at " + DateTime.Now.ToString() +
                 ". This is a new tab generated at " + DateTime.Now.ToString();

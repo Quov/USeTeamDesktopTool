@@ -42,7 +42,7 @@ namespace USeTeamDesktopTool
             FilePathTB.Text = "";
             appLogFileLocation = eventLogger.GetAppLogFilePathName();
             //TODO: Add a "Checking for Drop folder access" popup.
-            if(Directory.Exists(@"\\mdcdvbz502\HF\INBOUND") == true)
+            if(Directory.Exists(@"\\mdcdvbz500\HF\INBOUND") == true)
             {
                 GenerateNewXmlDataBTN.IsEnabled = true;
             }
@@ -118,6 +118,7 @@ namespace USeTeamDesktopTool
 
                     }
 
+                    //TODO: 
                     XmlNodeList EDIInvoiceHeaderList = doc.SelectNodes("/dft:SHIPMENT/dft:SHIPMENT_MAIN/dft:EDI_SHIPMENT_HEADER/dft:EDI_INVOICE_HEADER", namespaces);
                     invCount = EDIInvoiceHeaderList.Count;
 
@@ -133,7 +134,7 @@ namespace USeTeamDesktopTool
                             if(commNode["COMM_INV_NO"] != null)
                             {
                                 ChangeTextBox(CommInvNoTB1, greenBack, commNode["COMM_INV_NO"].InnerText);
-                                ChangeTextBox(CommInvNoTB2, redBack, "");
+                                //ChangeTextBox(CommInvNoTB2, redBack, "");
                                 string invName = commNode["COMM_INV_NO"].InnerText;
                                 eachInvoice.Add(invName);
                             }
@@ -297,7 +298,7 @@ namespace USeTeamDesktopTool
                             FilterIndex = 1,
                             RestoreDirectory = true,
                             FileName = NewMatchEntryTB.Text,
-                            InitialDirectory = @"\\mdcdvbz502\HF\INBOUND"
+                            InitialDirectory = @"\\mdcdvbz500\HF\INBOUND"
                         };
 
                         if (saveFileDialog1.ShowDialog() == DialogResult.OK)

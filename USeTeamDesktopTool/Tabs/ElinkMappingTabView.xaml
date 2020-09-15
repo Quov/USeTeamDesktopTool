@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="USeTeamDesktopTool.ElinkMappingTabView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:USeTeamDesktopTool"
+      mc:Ignorable="d">
+
+    <Grid Height="586" Width="1291">
+        <Grid.RowDefinitions>
+
+        </Grid.RowDefinitions>
+        <TabControl Margin="0,10,9.667,10">
+            <TabItem Header="Details">
+                <Grid Margin="0,0,0,0">
+                    <Label Content="Client Number" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,11,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="168"/>
+                    <Label Content="Client Name" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,39,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="470"/>
+                    <Label Content="LII Team" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="470"/>
+                    <Label Content="LII CSM" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="470"/>
+                    <Label Content="LII Operations Contact" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,123,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="470"/>
+                    <Label Content="Client Business Contact" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,151,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="470"/>
+                    <Label Content="Client IT Contact" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,179,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="470"/>
+                    <ComboBox Margin="173,319,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="147" Height="32">
+                        <ComboBoxItem Content="Livingston" HorizontalAlignment="Left" Width="144.666666666667"/>
+                        <ComboBoxItem Content="Client" HorizontalAlignment="Left" Width="144.666666666667"/>
+                    </ComboBox>
+                    <Label Content="Connection Type" HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,356,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="147"/>
+                    <Label Content="Username" HorizontalAlignment="Left" Margin="10,411,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,412,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="214"/>
+                    <Label Content="Password" HorizontalAlignment="Left" Margin="10,438,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,440,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="214"/>
+                    <Label Content="Connection Host" HorizontalAlignment="Left" Margin="10,324,0,0" VerticalAlignment="Top" Width="158"/>
+                    <Label Content="Host Name" HorizontalAlignment="Left" Margin="10,384,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,384,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="214"/>
+                    <Label Content="Port" HorizontalAlignment="Left" Margin="392,383,0,0" VerticalAlignment="Top" Width="44"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="441,384,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="69"/>
+                    <RichTextBox Margin="648,38,9.667,10.333">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <Button Content="Generate HSS Content" Height="23" Margin="392,334,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="229"/>
+                    <Label Content="Additional Notes" HorizontalAlignment="Left" Margin="648,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="File Type" HorizontalAlignment="Left" Margin="10,489,0,0" VerticalAlignment="Top" Width="158"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="173,490,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="214"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Mapping">
+                <Grid>
+                    <DataGrid Margin="10,47,568.667,10.333"/>
+                    <Button x:Name="ExcelOutputBTN"
+                                  Command=""
+                                  Height="32"
+                                  Width="32"
+                                  Margin="10,10,0,0"
+                                  Padding="0 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                  Click="ExcelOutBTN_Click"
+                            >
+                        <!--<materialDesign:PackIcon Kind="PlusCircle" Height="26" Width="26" />-->
+                    </Button>
+                    <Button x:Name="s"
+                                  Command=""
+                                  Height="32"
+                                  Width="32"
+                                  Margin="47,10,0,0"
+                                  Padding="0 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                  >
+                        <!--<materialDesign:PackIcon Kind="MinusCircle" Height="26" Width="26" />-->
+                    </Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Sign Off">
+                <Grid />
+            </TabItem>
+            <TabItem Header="Change Control">
+                <Grid />
+            </TabItem>
+            <TabItem Header="Export">
+                <Grid />
+            </TabItem>
+
+
+
+
+
+        </TabControl>
+    </Grid>
+</UserControl>

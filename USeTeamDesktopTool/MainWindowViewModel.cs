@@ -10,14 +10,19 @@ namespace USeTeamDesktopTool
     public class MainWindowViewModel
     {
         private readonly ObservableCollection<ITab> tabs;
+
         public MainWindowViewModel()
         {
             //TODO: Add savetab commans for each tab type
-            NewSaveTabCommand = new ActionCommand(p => NewSaveTab());
             NewTestTabCommand = new ActionCommand(p => NewTestTab());
             NewDropToTest1TabCommand = new ActionCommand(P => NewDropToTest1Tab());
             NewCompareTabCommand = new ActionCommand(P => NewCompareTab());
             NewAmazonAuditTabCommand = new ActionCommand(P => NewAmazonAuditTab());
+            //NewElinkMappingTabCommand = new ActionCommand(P => NewElinkMappingTab());
+            NewBrpF1AuditTabCommand = new ActionCommand(P => NewBrpF1AuditTab());
+            NewTeamSignOffTabCommand = new ActionCommand(P => NewTeamSignOffTab());
+            NewCanadaGooseTabCommand = new ActionCommand(P => NewCanadaGooseTab());
+            NewMondelezAuditTabCommand = new ActionCommand(P => NewMondelezAuditTab());
 
             tabs = new ObservableCollection<ITab>();
             tabs.CollectionChanged += Tabs_CollectionChanged;
@@ -25,20 +30,20 @@ namespace USeTeamDesktopTool
             Tabs = tabs;
         }
 
-        public ICommand NewSaveTabCommand { get; }
         public ICommand NewTestTabCommand { get; }
         public ICommand NewDropToTest1TabCommand { get; }
         public ICommand NewCompareTabCommand { get; }
         public ICommand NewAmazonAuditTabCommand { get; }
+        //public ICommand NewElinkMappingTabCommand { get; }
+        public ICommand NewBrpF1AuditTabCommand { get; }
+        public ICommand NewTeamSignOffTabCommand { get; }
+        public ICommand NewCanadaGooseTabCommand { get; }
+
+        public ICommand NewMondelezAuditTabCommand { get; }
 
         public ICollection<ITab> Tabs { get; }
 
         //TODO: add methods for each tab type
-        private void NewSaveTab()
-        {
-            Tabs.Add(new SaveTab());
-        }
-
         private void NewTestTab()
         {
             Tabs.Add(new TestTab());
@@ -57,6 +62,31 @@ namespace USeTeamDesktopTool
         private void NewAmazonAuditTab()
         {
             Tabs.Add(new AmazonAuditTab());
+        }
+
+        //private void NewElinkMappingTab()
+        //{
+        //    Tabs.Add(new ElinkMappingTab());
+        //}
+
+        private void NewBrpF1AuditTab()
+        {
+            Tabs.Add(new BrpF1AuditTab());
+        }
+
+        private void NewTeamSignOffTab()
+        {
+            Tabs.Add(new TeamSignOffTab());
+        }
+
+        private void NewCanadaGooseTab()
+        {
+            Tabs.Add(new CanadaGooseTab());
+        }
+
+        private void NewMondelezAuditTab()
+        {
+            Tabs.Add(new MondelezAuditTab());
         }
 
         private void Tabs_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

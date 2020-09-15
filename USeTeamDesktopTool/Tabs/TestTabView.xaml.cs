@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,14 @@ namespace USeTeamDesktopTool
         public TestTabView()
         {
             InitializeComponent();
+
+            string curDir = Directory.GetCurrentDirectory();
+
+            if (Directory.Exists(@"\\pdc-evs-file\US_Common\US_Brokerage\USeTeamDesktopTool\") == true)
+            {
+                string updateNotes = File.ReadAllText(@"\\pdc-evs-file\US_Common\US_Brokerage\USeTeamDesktopTool\UpdateNotes.html");
+                WebBrowserControl.NavigateToString(updateNotes);
+            }
         }
     }
 }

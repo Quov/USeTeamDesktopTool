@@ -16,9 +16,10 @@ namespace USeTeamDesktopTool
         protected override void OnStartup(StartupEventArgs e)
         {          
             var viewModel = new MainWindowViewModel();
-            var view2 = new MainWindow() { DataContext = viewModel };
+            var view2 = new MainWindow() { DataContext = viewModel };          
+            viewModel.NewTestTabCommand.Execute(null);
+            view2.MainTabControl.SelectedIndex = 0;
             view2.ShowDialog();
-            
         }
     }
 }

@@ -3,11 +3,11 @@ using USeTeamDesktopTool.MVVM;
 
 namespace USeTeamDesktopTool
 {
-    public class TestTab : Tab
+    public class CanadaGooseTab : Tab
     {
-        public TestTab()
+        public CanadaGooseTab()
         {
-            Name = "Patch Notes";
+            Name = "Canada Goose File Helper";
             Content = "This is a new tab generated at " + DateTime.Now.ToString() + ". This is a new tab generated at " + DateTime.Now.ToString() +
                 ". This is a new tab generated at " + DateTime.Now.ToString() + ". This is a new tab generated at " + DateTime.Now.ToString() +
                 ". This is a new tab generated at " + DateTime.Now.ToString();

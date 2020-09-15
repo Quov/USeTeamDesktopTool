@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace USeTeamDesktopTool
 {
@@ -38,7 +32,7 @@ namespace USeTeamDesktopTool
                 {
                     Properties.Settings.Default.UserClass = UserClassCB.SelectedItem.ToString();
                     Properties.Settings.Default.Save();
-                    MessageBox.Show("User class has been changed. Please note : The GUI changes will not be reflected until the program is restarted.");
+                    MessageBox.Show("User class has been changed.");
                     this.Close();
                 }
                 else
@@ -50,9 +44,16 @@ namespace USeTeamDesktopTool
             {
                 Properties.Settings.Default.UserClass = UserClassCB.SelectedItem.ToString();
                 Properties.Settings.Default.Save();
-                MessageBox.Show("User class has been changed. Please note : The GUI changes will not be reflected until the program is restarted.");
+                MessageBox.Show("User class has been changed.");
                 this.Close();
             }
+
+            //TODO: ADD LOGIC TO CHECK IF TABS ARE OPEN
+
+            MainWindow newWindow = new MainWindow();
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+
+            newWindow.ResetMenu(window);
         }
     }
 }

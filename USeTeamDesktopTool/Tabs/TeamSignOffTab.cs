@@ -3,11 +3,11 @@ using USeTeamDesktopTool.MVVM;
 
 namespace USeTeamDesktopTool
 {
-    public class TestTab : Tab
+    public class TeamSignOffTab : Tab
     {
-        public TestTab()
+        public TeamSignOffTab()
         {
-            Name = "Patch Notes";
+            Name = "Team Sign Off Generator";
             Content = "This is a new tab generated at " + DateTime.Now.ToString() + ". This is a new tab generated at " + DateTime.Now.ToString() +
                 ". This is a new tab generated at " + DateTime.Now.ToString() + ". This is a new tab generated at " + DateTime.Now.ToString() +
                 ". This is a new tab generated at " + DateTime.Now.ToString();
