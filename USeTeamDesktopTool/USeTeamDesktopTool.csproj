@@ -152,6 +152,10 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Tabs\AmercareAuditTab.cs" />
+    <Compile Include="Tabs\AmercareAuditTabView.xaml.cs">
+      <DependentUpon>AmercareAuditTabView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tabs\MondelezAuditTab.cs" />
     <Compile Include="Tabs\MondelezAuditTabView.xaml.cs">
       <DependentUpon>MondelezAuditTabView.xaml</DependentUpon>
@@ -216,6 +220,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Tabs\AmercareAuditTabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Tabs\MondelezAuditTabView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

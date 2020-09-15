@@ -39,6 +39,9 @@
                     <DataTemplate DataType="{x:Type tabs:AmazonAuditTab}">
                         <tabs:AmazonAuditTabView/>
                     </DataTemplate>
+                    <DataTemplate DataType="{x:Type tabs:AmercareAuditTab}">
+                        <tabs:AmercareAuditTabView/>
+                    </DataTemplate>
                     <DataTemplate DataType="{x:Type tabs:ElinkMappingTab}">
                         <tabs:ElinkMappingTabView/>
                     </DataTemplate>

@@ -18,6 +18,7 @@ namespace USeTeamDesktopTool
             NewDropToTest1TabCommand = new ActionCommand(P => NewDropToTest1Tab());
             NewCompareTabCommand = new ActionCommand(P => NewCompareTab());
             NewAmazonAuditTabCommand = new ActionCommand(P => NewAmazonAuditTab());
+            NewAmercareAuditTabCommand = new ActionCommand(P => NewAmercareAuditTab());
             //NewElinkMappingTabCommand = new ActionCommand(P => NewElinkMappingTab());
             NewBrpF1AuditTabCommand = new ActionCommand(P => NewBrpF1AuditTab());
             NewTeamSignOffTabCommand = new ActionCommand(P => NewTeamSignOffTab());
@@ -38,8 +39,8 @@ namespace USeTeamDesktopTool
         public ICommand NewBrpF1AuditTabCommand { get; }
         public ICommand NewTeamSignOffTabCommand { get; }
         public ICommand NewCanadaGooseTabCommand { get; }
-
         public ICommand NewMondelezAuditTabCommand { get; }
+        public ICommand NewAmercareAuditTabCommand { get; }
 
         public ICollection<ITab> Tabs { get; }
 
@@ -62,6 +63,10 @@ namespace USeTeamDesktopTool
         private void NewAmazonAuditTab()
         {
             Tabs.Add(new AmazonAuditTab());
+        }
+        private void NewAmercareAuditTab()
+        {
+            Tabs.Add(new AmercareAuditTab());
         }
 
         //private void NewElinkMappingTab()

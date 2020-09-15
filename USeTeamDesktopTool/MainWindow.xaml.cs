@@ -120,6 +120,18 @@ namespace USeTeamDesktopTool
                 analysisAmazonAudit.SetBinding(MenuItem.CommandProperty, analysisAmazonAuditBinding);
                 AnalysisMenu.Items.Add(analysisAmazonAudit);
 
+                MenuItem analysisAmercareAudit = new MenuItem
+                {
+                    Header = "Amercare Audit",
+                    Name = "AmercareAuditMenu",
+                    Height = 22
+                    //Width = 240
+                };
+                Binding analysisAmercareAuditBinding = new Binding();
+                analysisAmercareAuditBinding.Path = new PropertyPath("NewAmercareAuditTabCommand");
+                analysisAmercareAudit.SetBinding(MenuItem.CommandProperty, analysisAmercareAuditBinding);
+                AnalysisMenu.Items.Add(analysisAmercareAudit);
+
             MenuItem TestingMenu = new MenuItem
             {
                 Header = "Testing",
