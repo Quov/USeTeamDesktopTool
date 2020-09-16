@@ -197,7 +197,7 @@ namespace USeTeamDesktopTool
             return newAmznAdHoc;
         }
 
-        private AmznAssist LoadAssistCsv(string assistFileCsv)
+        private AmznAssist LoadOocltData(string assistFileCsv)
         {
             AmznAssist newAmznAssist = new AmznAssist();
 
@@ -251,3 +251,9 @@ namespace USeTeamDesktopTool
 
     }
 }
+
+//Flow
+// - TAKE IN ADHOC DATA CONTAINING OPEN SHIPMENTS WITH RELEVANT DATA ELMEENTS
+// - TAKE IN OOCL REPORT THAT SHOWS WHAT HAS BEEN SENT AND IS PENDING A RESPONSE FROM LII
+// - COMARE THE TWO DATA SETS AND PROVIDE SOME STATS BACK
+// - [POTENTIAL VALUE ADDED] - ADD CHECK FOR THE LII REPORT THAT REVIEWS THE VARIOUS FIELDS FOR DATA REPORTING AND CALL OUT ISSUES OF MISSING DATA
