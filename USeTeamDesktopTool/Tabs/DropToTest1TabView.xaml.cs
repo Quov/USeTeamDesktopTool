@@ -74,7 +74,8 @@ namespace USeTeamDesktopTool
             {
                 selectedFileName = null;
                 invCount = 0;
-                foreach(string filename in openFileDialog1.FileNames)
+                eachInvoice = new List<string>();
+                foreach (string filename in openFileDialog1.FileNames)
                 {
                     filePath = filename;
                     FilePathTB.Text = filePath;
