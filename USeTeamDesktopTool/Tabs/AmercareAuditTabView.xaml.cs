@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExcelDataReader;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -8,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using USeTeamDesktopTool.Data_Classes;
+using USeTeamDesktopTool.Data_Classes.AmercareAudit;
 using USeTeamDesktopTool.Functions;
 
 namespace USeTeamDesktopTool
@@ -24,191 +26,435 @@ namespace USeTeamDesktopTool
 
         private void SelectAdhocRerportBTN_Click(object sender, RoutedEventArgs e)
         {
-            //OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            //openFileDialog1.InitialDirectory = @"C:\";
-            //openFileDialog1.Title = "Select Assist Report File";
-            //openFileDialog1.Multiselect = false;
-            //openFileDialog1.CheckFileExists = true;
-            //openFileDialog1.CheckPathExists = true;
-            //openFileDialog1.DefaultExt = "txt";
-            //openFileDialog1.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
-            //openFileDialog1.FilterIndex = 1;
-            //openFileDialog1.RestoreDirectory = true;
-            //openFileDialog1.ReadOnlyChecked = true;
-            //openFileDialog1.ShowReadOnly = true;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = @"C:\";
+            openFileDialog1.Title = "Select Adhoc Report File";
+            openFileDialog1.Multiselect = false;
+            openFileDialog1.CheckFileExists = true;
+            openFileDialog1.CheckPathExists = true;
+            openFileDialog1.DefaultExt = "csv";
+            openFileDialog1.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.ReadOnlyChecked = true;
+            openFileDialog1.ShowReadOnly = true;
 
-            //if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            //{
-            //    foreach (string filename in openFileDialog1.FileNames)
-            //    {
-            //        AssistReportTB.Text = filename;
-            //    }
-            //}
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                foreach (string filename in openFileDialog1.FileNames)
+                {
+                    AdhocReportTB.Text = filename;
+                }
+            }
         }
 
         private void SelectOoclFileBTN_Click(object sender, RoutedEventArgs e)
         {
-            //OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            //openFileDialog1.InitialDirectory = @"C:\";
-            //openFileDialog1.Title = "Select Parts DB File";
-            //openFileDialog1.Multiselect = false;
-            //openFileDialog1.CheckFileExists = true;
-            //openFileDialog1.CheckPathExists = true;
-            //openFileDialog1.DefaultExt = "csv";
-            //openFileDialog1.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
-            //openFileDialog1.FilterIndex = 1;
-            //openFileDialog1.RestoreDirectory = true;
-            //openFileDialog1.ReadOnlyChecked = true;
-            //openFileDialog1.ShowReadOnly = true;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = @"C:\";
+            openFileDialog1.Title = "Select OOCL ACR File";
+            openFileDialog1.Multiselect = false;
+            openFileDialog1.CheckFileExists = true;
+            openFileDialog1.CheckPathExists = true;
+            openFileDialog1.DefaultExt = "xlsx";
+            openFileDialog1.Filter = "EXCEL files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.ReadOnlyChecked = true;
+            openFileDialog1.ShowReadOnly = true;
 
-            //if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            //{
-            //    foreach (string filename in openFileDialog1.FileNames)
-            //    {
-            //        PartDBTB.Text = filename;
-            //    }
-            //}
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                foreach (string filename in openFileDialog1.FileNames)
+                {
+                    OoclTB.Text = filename;
+                }
+            }
+        }
+
+        private void SelectInvAdhocBTN_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = @"C:\";
+            openFileDialog1.Title = "Select Adhoc Report File";
+            openFileDialog1.Multiselect = false;
+            openFileDialog1.CheckFileExists = true;
+            openFileDialog1.CheckPathExists = true;
+            openFileDialog1.DefaultExt = "csv";
+            openFileDialog1.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.ReadOnlyChecked = true;
+            openFileDialog1.ShowReadOnly = true;
+
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                foreach (string filename in openFileDialog1.FileNames)
+                {
+                    InvAdhocTB.Text = filename;
+                }
+            }
         }
 
         private void RunAnalysisBTN_Click(object sender, RoutedEventArgs e)
         {
-            //AmznAssist newAssist = new AmznAssist();
-            //AmznAdHoc newAdHoc = new AmznAdHoc();
-            //AssistError newErrors = new AssistError();
+            IEnumerable<DataRow> sheetData = LoadOocltData(OoclTB.Text);
+            OoclAcrData newOoclFile = new OoclAcrData();
+            AmercareShipmentDataAdhoc newAdhocFile = new AmercareShipmentDataAdhoc();
+            AmercareMissingShipmentData missingShipments = new AmercareMissingShipmentData();
+            AmercareShipmentDataCommAdhoc newShipmentAdhoc = new AmercareShipmentDataCommAdhoc();
 
-            //newAssist = LoadAssistCsv(PartDBTB.Text);
-            //newAdHoc = LoadAdHocData(AssistReportTB.Text);
+            int i = 0;
+            int maxRows = sheetData.Count();
+            string currentBL = null;
 
-            //foreach (AdHocItem item in newAdHoc.AllAdhocItems)
-            //{
-            //    SingleAmznAssist assistItem = newAssist.AllAmznList.Where(x => x.ASIN == item.PartNo).FirstOrDefault();
-            //    double correctValue = 0;
-            //    double test = 0;
-            //    if (assistItem != null)
-            //    {
-            //        //test = RoundUp(assistItem.AssistValue, 2);
-            //        test = assistItem.AssistValue;
-            //        correctValue = test * item.CommQty;
-            //    }
-            //    if (Math.Round(correctValue, 2) != (RoundUp(item.AssistValue, 2) / 100))
-            //    {
-            //        //CREATE ERROR RECORD TO DISPLAY HERE
-            //        SingleAssistError newError = new SingleAssistError();
-            //        newError.FileNo = item.FileNo;
-            //        newError.ClientNo = item.ClientNo;
-            //        newError.CommInvNo = item.CommInvNo;
-            //        newError.CommInvLineNo = item.CommInvLineNo;
-            //        newError.CommQty = item.CommQty;
-            //        newError.Uom = item.Uom;
-            //        newError.PartNo = item.PartNo;
-            //        newError.ForeignValue = item.ForeignValue;
-            //        //newError.AssistValue = (RoundUp(item.AssistValue,2)/100);
-            //        newError.AssistValue = item.AssistValue/100;
-            //        newError.FileLogged = item.FileLogged;
-            //        newError.CR = item.CR;
-            //        newError.ES = item.ES;
-            //        //if (assistItem != null) { newError.AmznAssistValuePerPart = RoundUp(assistItem.AssistValue,2); }
-            //        if (assistItem != null) { newError.AmznAssistValuePerPart = assistItem.AssistValue; }
-            //        newError.CorrectAssistValue = correctValue;
-            //        newError.Status = "FAIL";
-            //        if (assistItem == null || assistItem.ASIN == "")
-            //        {
-                        
-            //            newError.PartStatus = "NO PART FOUND IN CAT FILE";
-            //        }
-            //        else
-            //        {
-            //            newError.PartStatus = "PART FOUND IN CAT FILE";
-            //        }
-            //        newErrors.AllAssistErrors.Add(newError);
-            //    }
-            //    else
-            //    {
-            //        SingleAssistError newError = new SingleAssistError();
-            //        newError.FileNo = item.FileNo;
-            //        newError.ClientNo = item.ClientNo;
-            //        newError.CommInvNo = item.CommInvNo;
-            //        newError.CommInvLineNo = item.CommInvLineNo;
-            //        newError.CommQty = item.CommQty;
-            //        newError.Uom = item.Uom;
-            //        newError.PartNo = item.PartNo;
-            //        newError.ForeignValue = item.ForeignValue;
-            //        //newError.AssistValue = (RoundUp(item.AssistValue, 2) / 100);
-            //        newError.AssistValue = item.AssistValue/100;
-            //        newError.FileLogged = item.FileLogged;
-            //        newError.CR = item.CR;
-            //        newError.ES = item.ES;
-            //        //if (assistItem != null) { newError.AmznAssistValuePerPart = RoundUp(assistItem.AssistValue,2); }
-            //        if (assistItem != null) { newError.AmznAssistValuePerPart = assistItem.AssistValue; }
-            //        newError.CorrectAssistValue = correctValue;
-            //        newError.Status = "PASS";
-            //        if (assistItem == null || assistItem.ASIN == "")
-            //        {
-            //            newError.Status = "FAIL";
-            //            newError.PartStatus = "NO PART FOUND IN CAT FILE";
-            //        }
-            //        else
-            //        {
-            //            newError.PartStatus = "PART FOUND IN CAT FILE";
-            //        }
-            //        newErrors.AllAssistErrors.Add(newError);
-            //    }
-            //}
+            #region DataExtract - OOCL ACR Report
+            foreach (DataRow row in sheetData)
+            {
+                i++;
+                if(i > 6)
+                {
+                    if (!string.IsNullOrEmpty(row.ItemArray[0].ToString()))
+                    {
+                        currentBL = row.ItemArray[0].ToString();
+                    }
+                    else
+                    {
+                        SingleOoclRecord newRecord = new SingleOoclRecord();
+                        newRecord.Bl = currentBL;
+                        if (!string.IsNullOrEmpty(row.ItemArray[1].ToString())) { newRecord.Po = Convert.ToString(row.ItemArray[1].ToString()); }
+                        if (!string.IsNullOrEmpty(row.ItemArray[2].ToString())) { newRecord.Vessel = row.ItemArray[2].ToString(); }
+                        if (!string.IsNullOrEmpty(row.ItemArray[3].ToString())) { newRecord.Voyage = row.ItemArray[3].ToString(); }
+                        if (!string.IsNullOrEmpty(row.ItemArray[4].ToString())) { newRecord.FirstPostAdvice = Convert.ToDateTime(row.ItemArray[4].ToString());}
+                        if (!string.IsNullOrEmpty(row.ItemArray[5].ToString())) { newRecord.ProductCode = row.ItemArray[5].ToString(); }
+                        if (!string.IsNullOrEmpty(row.ItemArray[7].ToString())) { newRecord.Container = row.ItemArray[7].ToString();}
+                        if (!string.IsNullOrEmpty(row.ItemArray[8].ToString())) { newRecord.Pol = row.ItemArray[8].ToString();}
+                        if (!string.IsNullOrEmpty(row.ItemArray[9].ToString())) { newRecord.Pod = row.ItemArray[9].ToString();}
+                        if (!string.IsNullOrEmpty(row.ItemArray[10].ToString())) { newRecord.CargoFND = row.ItemArray[10].ToString();}
+                        if (!string.IsNullOrEmpty(row.ItemArray[11].ToString())) { newRecord.CargoFNDEta = Convert.ToDateTime(row.ItemArray[11].ToString());}
+                        if (!string.IsNullOrEmpty(row.ItemArray[12].ToString())) { newRecord.Carrier = row.ItemArray[12].ToString();}
+                        if (!string.IsNullOrEmpty(row.ItemArray[13].ToString())) { newRecord.CarrierFNDEta = Convert.ToDateTime(row.ItemArray[13].ToString());}
+                        if (!string.IsNullOrEmpty(row.ItemArray[14].ToString())) { newRecord.PodEta = Convert.ToDateTime(row.ItemArray[14].ToString());}
+                        if (!string.IsNullOrEmpty(row.ItemArray[16].ToString())) { newRecord.FwBl = row.ItemArray[16].ToString();}
+                        if (!string.IsNullOrEmpty(row.ItemArray[23].ToString())) { newRecord.DeliveredDate = Convert.ToDateTime(row.ItemArray[23].ToString());}
+                        newOoclFile.AllOoclRecords.Add(newRecord);
+                    }               
+                }
+            }
+            #endregion
 
-            //DataTable table = new DataTable();
-            //table = ToDataTable<SingleAssistError>(newErrors.AllAssistErrors);
-            //DataGridViewDG.ItemsSource = newErrors.AllAssistErrors;
+            #region DataExtract - Adhoc Report Shipment
+            newAdhocFile = LoadAdHocData(AdhocReportTB.Text);
+            #endregion
 
-            //double totalItems = newErrors.AllAssistErrors.Count();
-            //double totalErrorItems = newErrors.AllAssistErrors.Where(x => x.Status == "FAIL").Count();
-            //double accuracyPercentage = ((totalItems - totalErrorItems) / totalItems) * 100;
+            #region DataExtract - Adhoc Report (Podium Data)
+            string[] lines = File.ReadAllLines(InvAdhocTB.Text);
+            int lineCount = 0;
+            foreach(string line in lines)
+            {
+                string currentLineTxt = line;
+                currentLineTxt = currentLineTxt.Replace("\"", "");
+                lineCount++;
+                if(lineCount > 1)
+                {
+                    string[] values = currentLineTxt.Split(',');
+                    EvolveShipmentHeader matchingShipment = newShipmentAdhoc.AllShipments.Where(x => x.FileNo == Convert.ToInt32(values[0])).FirstOrDefault();
+                    if(matchingShipment != null)
+                    {
+                        EvolveShipmentCI currentInvoice = matchingShipment.AllInvoices.Where(x => x.InvoiceNumber == Convert.ToString(values[1])).FirstOrDefault();
+                        if(currentInvoice != null)
+                        {
+                            EvolveCILine currentLine = currentInvoice.AllLines.Where(x => x.LineNo == Convert.ToInt32(values[4])).FirstOrDefault();
+                            if(currentLine != null)
+                            {
+                                //THIS SHOULD NEVER BE HIT!
+                            }
+                            else
+                            {
+                                EvolveCILine newLine = new EvolveCILine();
+                                newLine.LineNo = Convert.ToInt32(values[4]);
+                                newLine.PartNumber = Convert.ToString(values[5]);
+                                newLine.LinePONumber = Convert.ToString(values[6]);
+                                newLine.ContainerNumber = Convert.ToString(values[7]);
+                                currentInvoice.AllLines.Add(newLine);
+                            }
+                        }
+                        else
+                        {
+                            EvolveShipmentCI newCI = new EvolveShipmentCI();
+                            newCI.InvoiceNumber = Convert.ToString(values[1]);
+                            newCI.CIPONumber = Convert.ToString(values[2]);
+                            newCI.Desc1Ci = Convert.ToString(values[3]);
+                            if(Convert.ToString(values[3]).StartsWith("POD: "))
+                            {
+                                string podString = Convert.ToString(values[3]).Substring(5, Convert.ToString(values[3]).Length - 5).Trim();
+                                string[] split = podString.Split('-');
+                                newCI.BL = split[0];
+                                newCI.Container = split[1];
+                            }
+                            matchingShipment.AllInvoices.Add(newCI);
 
-            //AccPercLabel.Content = "Accuracy Rate : " + accuracyPercentage.ToString("f2") + " %";
-            //if (accuracyPercentage >= 95)
-            //{
-            //    AccPercLabel.Foreground = System.Windows.Media.Brushes.Green;
-            //}
-            //else if (accuracyPercentage >= 85 && accuracyPercentage < 95)
-            //{
-            //    AccPercLabel.Foreground = System.Windows.Media.Brushes.Orange;
-            //}
-            //else
-            //{
-            //    AccPercLabel.Foreground = System.Windows.Media.Brushes.Red;
-            //}
+                            EvolveShipmentCI newInvoiceInList = matchingShipment.AllInvoices.Where(x => x.InvoiceNumber == newCI.InvoiceNumber).FirstOrDefault();
+
+                            EvolveCILine newLine = new EvolveCILine();
+                            newLine.LineNo = Convert.ToInt32(values[4]);
+                            newLine.PartNumber = Convert.ToString(values[5]);
+                            newLine.LinePONumber = Convert.ToString(values[6]);
+                            newLine.ContainerNumber = Convert.ToString(values[7]);
+                            newInvoiceInList.AllLines.Add(newLine);
+                        }
+                    }
+                    else
+                    {
+                        //create new record
+                        EvolveShipmentHeader newShipment = new EvolveShipmentHeader();
+                        newShipment.FileNo = Convert.ToInt32(values[0]);
+                        newShipmentAdhoc.AllShipments.Add(newShipment);
+
+                        EvolveShipmentHeader newShipmentInList = newShipmentAdhoc.AllShipments.Where(x => x.FileNo == newShipment.FileNo).FirstOrDefault();
+
+                        EvolveShipmentCI newCI = new EvolveShipmentCI();
+                        newCI.InvoiceNumber = Convert.ToString(values[1]);
+                        newCI.CIPONumber = Convert.ToString(values[2]);
+                        newCI.Desc1Ci = Convert.ToString(values[3]);
+                        if (Convert.ToString(values[3]).StartsWith("POD: "))
+                        {
+                            string podString = Convert.ToString(values[3]).Substring(5, Convert.ToString(values[3]).Length - 5).Trim();
+                            string[] split = podString.Split('-');
+                            newCI.BL = split[0];
+                            newCI.Container = split[1];
+                        }
+                        newShipmentInList.AllInvoices.Add(newCI);
+
+                        EvolveShipmentCI newInvoiceInList = newShipmentInList.AllInvoices.Where(x => x.InvoiceNumber == newCI.InvoiceNumber).FirstOrDefault();
+
+                        EvolveCILine newLine = new EvolveCILine();
+                        newLine.LineNo = Convert.ToInt32(values[4]);
+                        newLine.PartNumber = Convert.ToString(values[5]);
+                        newLine.LinePONumber = Convert.ToString(values[6]);
+                        newLine.ContainerNumber = Convert.ToString(values[7]);
+                        newInvoiceInList.AllLines.Add(newLine);
+                    }
+                }    
+            }
+            #endregion
+
+            #region Analysis
+
+            foreach (SingleOoclRecord ooclRecord in  newOoclFile.AllOoclRecords)
+            {
+                string test = ooclRecord.Bl.ToString().Substring(4, ooclRecord.Bl.ToString().Length - 4);
+                SingleRecord evolveMatch = newAdhocFile.AllRecords.Where(x => x.HouseBL == test
+                                                                        || x.MasterBL == test).FirstOrDefault();
+                
+                //Checks to see if we have a record in the 'Shipment' adhoc
+                //If it doesnt, it logs this items as a 'Error' at the header level
+                if(evolveMatch == null)
+                {         
+                    SingleMissingShipment matchingRecord = missingShipments.AllMissingRecords.Where(x => x.Bl == ooclRecord.Bl
+                                                                                                    && x.Vessel == ooclRecord.Vessel
+                                                                                                    && x.Voyage == ooclRecord.Voyage
+                                                                                                    && x.Pol == ooclRecord.Pol
+                                                                                                    && x.Pod == ooclRecord.Pod
+                                                                                                    && x.CarrierFNDEta == ooclRecord.CarrierFNDEta).FirstOrDefault();
+                    if(matchingRecord == null)
+                    {
+                        SingleMissingShipment newShipment = new SingleMissingShipment
+                        {
+                            Bl = ooclRecord.Bl,
+                            Vessel = ooclRecord.Vessel,
+                            Voyage = ooclRecord.Voyage,
+                            Pol = ooclRecord.Pol,
+                            Pod = ooclRecord.Pod,
+                            CarrierFNDEta = ooclRecord.CarrierFNDEta,
+                            ShipmentErrorDesc = "SHIPMENT DOES NOT EXIST IN EVOLVE"
+                        };
+                        missingShipments.AllMissingRecords.Add(newShipment);
+                    }
+                    
+                }
+                else
+                {
+                    //This is if the shipment exists, it starts the compare process from the oocl ACR report to what we have on file and determines where the issue is
+                    int fileNumber = evolveMatch.FileNo;
+                    EvolveShipmentHeader matchingShipment = newShipmentAdhoc.AllShipments.Where(x => x.FileNo == fileNumber).FirstOrDefault();
+                    if(matchingShipment != null)
+                    {
+                        string bl = ooclRecord.Bl;
+                        string poNumber = ooclRecord.Po;
+                        string partNumber = ooclRecord.ProductCode;
+                        string container = ooclRecord.Container;
+
+                        string errorString = "";
+
+                        bool poMatch = false;
+                        bool containerMatch = false;
+                        bool blMatch = false;
+
+                        EvolveShipmentCI currentInvoice = matchingShipment.AllInvoices.Where(x => x.BL == bl).FirstOrDefault();
+                        if(currentInvoice == null) 
+                        {
+                            errorString = "MISSING/INCORRECT BL IN DESC_1_CI at CI_HEADER";
+
+                            SingleMissingShipment newMissing = new SingleMissingShipment
+                            {
+                                Bl = ooclRecord.Bl,
+                                Vessel = ooclRecord.Vessel,
+                                Voyage = ooclRecord.Voyage,
+                                Pol = ooclRecord.Pol,
+                                Pod = ooclRecord.Pod,
+                                OoclContainer = container,
+                                OoclProductCode = partNumber,
+                                OoclPONumber = poNumber,
+                                CarrierFNDEta = ooclRecord.CarrierFNDEta,
+                                LiiFileNo = matchingShipment.FileNo,
+                                ShipmentErrorDesc = errorString
+                            };
+
+                            missingShipments.AllMissingRecords.Add(newMissing);
+                        }
+                        else
+                        {
+                            SingleMissingShipment currShipment = missingShipments.AllMissingRecords.Where(x => x.Bl == ooclRecord.Bl
+                                                                                                          && x.Vessel == ooclRecord.Vessel
+                                                                                                          && x.Voyage == ooclRecord.Voyage
+                                                                                                          && x.Pol == ooclRecord.Pol
+                                                                                                          && x.Pod == ooclRecord.Pod).FirstOrDefault();
+                            //if (currShipment == null)
+                            //{
+                            //    //SEE IF MISSING EXISTS, IF IT DOES, USE IT, IF IT DOESNT, CREATE IT
+                            //    SingleMissingShipment newMissing = new SingleMissingShipment
+                            //    {
+                            //        Bl = ooclRecord.Bl,
+                            //        Vessel = ooclRecord.Vessel,
+                            //        Voyage = ooclRecord.Voyage,
+                            //        Pol = ooclRecord.Pol,
+                            //        Pod = ooclRecord.Pod,
+                            //        CarrierFNDEta = ooclRecord.CarrierFNDEta
+                            //    };
+                            //    missingShipments.AllMissingRecords.Add(newMissing);
+                            //}
+
+                            blMatch = true;
+                            IEnumerable<EvolveCILine> currentLines = currentInvoice.AllLines.Where(x => x.PartNumber == partNumber
+                                                                                                    && x.LinePONumber == poNumber);
+                            //if(currentLines != null)
+                            if(!GeneralFunctions.IsNullOrEmpty(currentLines))
+                            {
+                                foreach(EvolveCILine line in currentLines)
+                                {
+                                    errorString = "";
+                                    if(line.LinePONumber == poNumber) { poMatch = true;}
+                                    if(line.ContainerNumber == container) { containerMatch = true; }
+
+                                    if(containerMatch == true && poMatch == false) { errorString = "PO DOES NOT MATCH (LINE CUST_REF)"; }
+                                    if(containerMatch == false && poMatch == true) { errorString = "CONTAINER DOES NOT MATCH (LINE CONTAINER_NO)"; }
+                                    if(containerMatch == true && poMatch == true) { errorString = "CONTAINER and PO Match : REVIEW PROCESS WITH ETEAM (LINE CUST_REF & LINE CONTAINER_NO)"; }
+                                    if(containerMatch == false && poMatch == false) { errorString = "PO AND CONTAINER DO NOT MATCH (LINE CUST_REF & LINE CONTAINER_NO)"; }
+
+
+                                    SingleMissingShipment currentMissing = missingShipments.AllMissingRecords.Where(x => x.Bl == bl
+                                                                                                                    && x.Vessel == ooclRecord.Vessel
+                                                                                                                    && x.Voyage == ooclRecord.Voyage
+                                                                                                                    && x.Pol == ooclRecord.Pol
+                                                                                                                    && x.Pod == ooclRecord.Pod
+                                                                                                                    && x.CarrierFNDEta == ooclRecord.CarrierFNDEta).FirstOrDefault();
+                                    SingleMissingShipment newMissing = new SingleMissingShipment
+                                    {
+                                        Bl = ooclRecord.Bl,
+                                        Vessel = ooclRecord.Vessel,
+                                        Voyage = ooclRecord.Voyage,
+                                        Pol = ooclRecord.Pol,
+                                        Pod = ooclRecord.Pod,
+                                        CarrierFNDEta = ooclRecord.CarrierFNDEta,
+                                        OoclContainer = container,
+                                        OoclProductCode = partNumber,
+                                        OoclPONumber = poNumber,
+                                        LiiFileNo = matchingShipment.FileNo,
+                                        LiiProductCode = line.PartNumber,
+                                        LiiContainer = line.ContainerNumber,
+                                        LiiPONumber = line.LinePONumber,
+                                        LineErrorDesc = errorString
+                                    };
+                                    missingShipments.AllMissingRecords.Add(newMissing);
+                                }
+                            }
+                            else
+                            {
+                                //SingleMissingShipment currentMissing = missingShipments.AllMissingRecords.Where(x => x.Bl == bl
+                                //                                                                                    && x.Vessel == ooclRecord.Vessel
+                                //                                                                                    && x.Voyage == ooclRecord.Voyage
+                                //                                                                                    && x.Pol == ooclRecord.Pol
+                                //                                                                                    && x.Pod == ooclRecord.Pod
+                                //                                                                                    && x.CarrierFNDEta == ooclRecord.CarrierFNDEta).FirstOrDefault();
+
+                                errorString = "PART/PO COMBO DOES NOT MATCH ANYTHING IN THE FILE.";
+
+                                SingleMissingShipment currentMissing = new SingleMissingShipment
+                                {
+                                    Bl = ooclRecord.Bl,
+                                    Vessel = ooclRecord.Vessel,
+                                    Voyage = ooclRecord.Voyage,
+                                    Pol = ooclRecord.Pol,
+                                    Pod = ooclRecord.Pod,
+                                    CarrierFNDEta = ooclRecord.CarrierFNDEta,
+                                    OoclContainer = container,
+                                    OoclProductCode = partNumber,
+                                    OoclPONumber = poNumber,
+                                    LiiFileNo = matchingShipment.FileNo,
+                                    LineErrorDesc = errorString
+                                };
+
+                                missingShipments.AllMissingRecords.Add(currentMissing);
+                            }
+                        }
+                    }
+                }
+            }
+
+            DataTable table = new DataTable();
+            table = ToDataTable<SingleMissingShipment>(missingShipments.AllMissingRecords);
+            DataGridViewDG.ItemsSource = missingShipments.AllMissingRecords;
+
+            #endregion
+
+            System.Windows.Forms.MessageBox.Show("DONE");
         }
 
         private void ExcelOutputBTN_Click_1(object sender, RoutedEventArgs e)
         {
-            ExportToExcel<SingleAssistError, List<SingleAssistError>> s = new ExportToExcel<SingleAssistError, List<SingleAssistError>>();
-            s.dataToPrint = (List<SingleAssistError>)DataGridViewDG.ItemsSource;
+            ExportToExcel<SingleMissingShipment, List<SingleMissingShipment>> s = new ExportToExcel<SingleMissingShipment, List<SingleMissingShipment>>();
+            s.dataToPrint = (List<SingleMissingShipment>)DataGridViewDG.ItemsSource;
             s.GenerateReport();
         }
 
-        private AmznAdHoc LoadAdHocData(string adhocFile)
+        private AmercareShipmentDataAdhoc LoadAdHocData(string adhocFile)
         {
-            AmznAdHoc newAmznAdHoc = new AmznAdHoc();
+            AmercareShipmentDataAdhoc newAdhoc = new AmercareShipmentDataAdhoc();
             //TODO : ADD CHECK HERE
-            List<AdHocItem> values = File.ReadAllLines(adhocFile)
+            List<SingleRecord> values = File.ReadAllLines(adhocFile)
                                            .Skip(1)
-                                           .Select(v => AdHocItem.FromCsv(v))
+                                           .Select(v => SingleRecord.FromCsv(v))
                                            .ToList();
-            newAmznAdHoc.AllAdhocItems = values;
-            return newAmznAdHoc;
+            newAdhoc.AllRecords = values;
+            return newAdhoc;
         }
 
-        private AmznAssist LoadOocltData(string assistFileCsv)
+        private IEnumerable<DataRow> LoadOocltData(string assistFileCsv)
         {
-            AmznAssist newAmznAssist = new AmznAssist();
+            using (var stream = File.Open(assistFileCsv, FileMode.Open, FileAccess.Read))
+            {
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
+                {
+                    string sheetName = "Report0";
+                   
+                    var result = reader.AsDataSet();
+                    var worksheet = result.Tables[sheetName];
+                    var rows = from DataRow a in worksheet.Rows select a;
 
-            List<SingleAmznAssist> values = File.ReadAllLines(assistFileCsv)
-                                           .Skip(1)
-                                           .Select(v => SingleAmznAssist.FromCsv(v))
-                                           .ToList();
-            newAmznAssist.AllAmznList = values;
-            return newAmznAssist;
-
-
+                    return rows;
+                }
+            }
         }
 
         public static DataTable ToDataTable<T>(List<T> items)
@@ -238,22 +484,10 @@ namespace USeTeamDesktopTool
 
         private void ExcelOutputBTN_Click(object sender, RoutedEventArgs e)
         {
-            ExportToExcel<SingleAssistError, List<SingleAssistError>> s = new ExportToExcel<SingleAssistError, List<SingleAssistError>>();
-            s.dataToPrint = (List<SingleAssistError>)DataGridViewDG.ItemsSource;
+            ExportToExcel<SingleMissingShipment, List<SingleMissingShipment>> s = new ExportToExcel<SingleMissingShipment, List<SingleMissingShipment>>();
+            s.dataToPrint = (List<SingleMissingShipment>)DataGridViewDG.ItemsSource;
             s.GenerateReport();
         }
-
-        public static double RoundUp(double input, int places)
-        {
-            double multiplier = Math.Pow(10, Convert.ToDouble(places));
-            return Math.Ceiling(input * multiplier) / multiplier;
-        }
-
+    
     }
 }
-
-//Flow
-// - TAKE IN ADHOC DATA CONTAINING OPEN SHIPMENTS WITH RELEVANT DATA ELMEENTS
-// - TAKE IN OOCL REPORT THAT SHOWS WHAT HAS BEEN SENT AND IS PENDING A RESPONSE FROM LII
-// - COMARE THE TWO DATA SETS AND PROVIDE SOME STATS BACK
-// - [POTENTIAL VALUE ADDED] - ADD CHECK FOR THE LII REPORT THAT REVIEWS THE VARIOUS FIELDS FOR DATA REPORTING AND CALL OUT ISSUES OF MISSING DATA
