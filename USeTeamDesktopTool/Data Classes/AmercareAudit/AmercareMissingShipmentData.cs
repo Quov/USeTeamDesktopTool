@@ -33,6 +33,7 @@ namespace USeTeamDesktopTool.Data_Classes.AmercareAudit
         //    AllLines = new List<MissingLines>();
         //}
         public int LiiFileNo { get; set; }
+        public DateTime? LiiCrAccepted { get; set; }
         public string LiiProductCode { get; set; }
         public string LiiContainer { get; set; }
         public string LiiPONumber { get; set; }

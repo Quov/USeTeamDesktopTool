@@ -30,12 +30,12 @@
             </Button.Background>
         </Button>
         <Label Content="Save to Excel" Margin="44,0,0,13" HorizontalAlignment="Left" Width="128" Height="26" VerticalAlignment="Bottom"/>
-        <Label Content="Daily OOCL File" HorizontalAlignment="Left" Margin="15,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.457" Width="136" FontWeight="Bold"/>
+        <Label Content="Daily OOCL ACR File" HorizontalAlignment="Left" Margin="15,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.457" Width="136" FontWeight="Bold"/>
         <Label x:Name="AccPercLabel" Content="" Margin="0,0,22,13" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="268" Height="34" VerticalAlignment="Bottom"/>
         <TextBox x:Name="OoclTB" Height="26" Margin="165,47,324,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"/>
         <Button x:Name="SelectOoclBTN" Content="Select OOCL File" HorizontalAlignment="Right" Margin="0,47,151.667,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.502,0.5" Click="SelectOoclFileBTN_Click" Height="26">
         </Button>
-        <Label Content="Adhoc Invoice Report" HorizontalAlignment="Left" Margin="15,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.457" Width="136" FontWeight="Bold"/>
+        <Label Content="Adhoc Podium Report" HorizontalAlignment="Left" Margin="15,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.457" Width="136" FontWeight="Bold"/>
         <TextBox x:Name="InvAdhocTB" Height="26" Margin="165,83,324,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"/>
         <Button x:Name="SelectInvAdhocBTN" Content="Select Adhoc Report" HorizontalAlignment="Right" Margin="0,84,152,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.502,0.5" Height="26" Click="SelectInvAdhocBTN_Click"/>
     </Grid>

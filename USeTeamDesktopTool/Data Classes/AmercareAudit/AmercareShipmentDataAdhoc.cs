@@ -24,6 +24,7 @@ namespace USeTeamDesktopTool.Data_Classes
         public string HouseBL { get; set; }
         public string MasterSCAC { get; set; }
         public string MasterBL { get; set; }
+        public DateTime? CRAccepted { get; set; }
 
         public static SingleRecord FromCsv(string csvLine)
         {
@@ -33,6 +34,7 @@ namespace USeTeamDesktopTool.Data_Classes
 
             string houseScac = "";
             string houseBill = "";
+            DateTime? crAccepted = null;
 
             if (!string.IsNullOrEmpty(values[2].ToString()))
             {
@@ -42,6 +44,11 @@ namespace USeTeamDesktopTool.Data_Classes
             {
                 houseBill = Convert.ToString(values[3]);
             }
+            if (!string.IsNullOrEmpty(values[6].ToString()))
+            {
+                crAccepted = Convert.ToDateTime(values[6]);
+            }
+
 
             SingleRecord newRecord = new SingleRecord
             {
@@ -50,7 +57,8 @@ namespace USeTeamDesktopTool.Data_Classes
                 HouseSCAC = houseScac,
                 HouseBL = houseBill,
                 MasterSCAC = Convert.ToString(values[4]),
-                MasterBL = Convert.ToString(values[5])
+                MasterBL = Convert.ToString(values[5]),
+                CRAccepted = crAccepted
 
             };
             return newRecord;
