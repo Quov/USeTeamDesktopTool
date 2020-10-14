@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="USeTeamDesktopTool.AmercareAuditTabView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:USeTeamDesktopTool"
+      mc:Ignorable="d"
+      d:DesignHeight="300" >
+
+    <!--Width="1248" Height="609" Margin="0"-->
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Adhoc Shipment Report" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="145" FontWeight="Bold"/>
+        <TextBox x:Name="AdhocReportTB" Height="27" Margin="165,10,324,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="RunAnalysisBTN" Content="Run Analysis" Margin="0,10,26,0" VerticalAlignment="Top" Height="100"  HorizontalAlignment="Right" Width="121" Click="RunAnalysisBTN_Click"/>
+        <Button x:Name="SelectAdhocBTN" Content="Select Adhoc Report" HorizontalAlignment="Right" Margin="0,10,151.667,0" VerticalAlignment="Top" Width="167" Click="SelectAdhocRerportBTN_Click" Height="26" />
+        <DataGrid x:Name="DataGridViewDG" Margin="10,123,22,47" CanUserAddRows="False" CanUserReorderColumns="False" IsReadOnly="True" FontSize="14"/>
+
+        <Button x:Name="ExcelOutputBTN"
+                                  Command=""
+                                  Height="32"
+                                  Width="32"
+                                  Margin="10,0,0,10"
+                                  Padding="0 0 0 0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="ExcelOutputBTN_Click_1"
+                                  >
+            <Button.Background>
+                <ImageBrush ImageSource="../Files/Microsoft-Excel-2013-icon.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Save to Excel" Margin="44,0,0,13" HorizontalAlignment="Left" Width="128" Height="26" VerticalAlignment="Bottom"/>
+        <Label Content="Daily OOCL ACR File" HorizontalAlignment="Left" Margin="15,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.457" Width="136" FontWeight="Bold"/>
+        <Label x:Name="AccPercLabel" Content="" Margin="0,0,22,13" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="268" Height="34" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="OoclTB" Height="26" Margin="165,47,324,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="SelectOoclBTN" Content="Select OOCL File" HorizontalAlignment="Right" Margin="0,47,151.667,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.502,0.5" Click="SelectOoclFileBTN_Click" Height="26">
+        </Button>
+        <Label Content="Adhoc Podium Report" HorizontalAlignment="Left" Margin="15,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.457" Width="136" FontWeight="Bold"/>
+        <TextBox x:Name="InvAdhocTB" Height="26" Margin="165,83,324,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="SelectInvAdhocBTN" Content="Select Adhoc Report" HorizontalAlignment="Right" Margin="0,84,152,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.502,0.5" Height="26" Click="SelectInvAdhocBTN_Click"/>
+    </Grid>
+
+</UserControl>

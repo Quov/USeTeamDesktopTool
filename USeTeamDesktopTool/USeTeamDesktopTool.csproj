@@ -32,7 +32,7 @@
     <MinimumRequiredVersion>1.0.0.17</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>27</ApplicationRevision>
+    <ApplicationRevision>28</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -79,6 +79,12 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
     </Reference>
@@ -100,6 +106,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -128,6 +135,10 @@
     <Compile Include="CanadaGooseAugmentWindow.xaml.cs">
       <DependentUpon>CanadaGooseAugmentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data Classes\AmercareAudit\AmercareMissingShipmentData.cs" />
+    <Compile Include="Data Classes\AmercareAudit\AmercareShipmentDataAdhoc.cs" />
+    <Compile Include="Data Classes\AmercareAudit\AmercareShipmentDataCommAdhoc.cs" />
+    <Compile Include="Data Classes\AmercareAudit\AmercareTableView.cs" />
     <Compile Include="Data Classes\AmznAdHoc.cs" />
     <Compile Include="Data Classes\AmznAssist.cs" />
     <Compile Include="Data Classes\AppData.cs" />
@@ -141,17 +152,23 @@
     <Compile Include="Data Classes\MondelezContainerAdhoc.cs" />
     <Compile Include="Data Classes\MondelezOceanReport.cs" />
     <Compile Include="Data Classes\MondelezPartiesAdhoc.cs" />
+    <Compile Include="Data Classes\AmercareAudit\OoclAcrData.cs" />
     <Compile Include="Data Classes\Shipment.cs" />
     <Compile Include="Data Classes\XmlComparissonData.cs" />
     <Compile Include="Functions\CanadaGooseFunction.cs" />
     <Compile Include="Functions\EventLogging.cs" />
     <Compile Include="Functions\ExportToExcel.cs" />
+    <Compile Include="Functions\GeneralFunctions.cs" />
     <Compile Include="Functions\JsonFunctions.cs" />
     <Compile Include="Functions\XMLTest1Replace.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Tabs\AmercareAuditTab.cs" />
+    <Compile Include="Tabs\AmercareAuditTabView.xaml.cs">
+      <DependentUpon>AmercareAuditTabView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tabs\MondelezAuditTab.cs" />
     <Compile Include="Tabs\MondelezAuditTabView.xaml.cs">
       <DependentUpon>MondelezAuditTabView.xaml</DependentUpon>
@@ -216,6 +233,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Tabs\AmercareAuditTabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Tabs\MondelezAuditTabView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
